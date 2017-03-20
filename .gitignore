@@ -1,6 +1,4 @@
 node_modules
-roles/emily/vars/main.yml
-roles/chapman/vars/main.yml
-roles/emily/files/authorized_keys
-roles/chapman/files/authorized_keys
+roles/waimag_user/vars/main.yml
+roles/waimag_user/files/authorized_keys
 wp-config.php
