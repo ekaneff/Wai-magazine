@@ -1,0 +1,4 @@
+---
+# password
+mysql_root_password: $6$G5X/Z6P0udo8lXsi$JuDR5MHt36Xf/yYUq539lQSTxKd.SBCTydbxP2tMh85dPvF.ZkKiADIxvoVxoRma3Y.oz.NQobifE0TBQyQIg/
+dbname: wordpress

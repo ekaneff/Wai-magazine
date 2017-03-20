@@ -1,0 +1,47 @@
+---
+- name: Create project group
+  group:
+    name: "{{ group }}"
+    state: present
+
+- name: Create non-root user
+  user: 
+    name: "{{ nonroot_user }}"
+    password: "{{ nonroot_password }}"
+    group: "{{ group }}"
+    state: present
+
+- name: Create .ssh directory
+  become: true
+  become_user: "{{ nonroot_user }}"
+  become_method: su
+  file: 
+    path: /home/{{ nonroot_user }}/.ssh
+    state: directory
+    mode: "u=rwx,g=,o="
+
+- name: Create authorized_keys file
+  become: true
+  become_user: "{{ nonroot_user }}"
+  become_method: su
+  file: 
+    path: /home/{{ nonroot_user }}/.ssh/authorized_keys
+    state: touch
+    mode: "u=rwx,g=,o="
+
+- name: Add ssh key to authorized_keys
+  become: true
+  become_user: "{{ nonroot_user }}"
+  become_method: su
+  copy:
+    src: authorized_keys
+    dest: /home/{{ nonroot_user }}/.ssh/
+    owner: "{{nonroot_user}}"
+    mode:  "u=rw,g=,o="
+
+
+
+
+
+
+

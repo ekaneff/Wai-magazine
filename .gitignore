@@ -1,0 +1,6 @@
+node_modules
+roles/emily/vars/main.yml
+roles/chapman/vars/main.yml
+roles/emily/files/authorized_keys
+roles/chapman/files/authorized_keys
+wp-config.php
