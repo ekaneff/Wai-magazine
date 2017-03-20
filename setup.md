@@ -131,6 +131,7 @@ Now CodeShip will tell you that you can trigger your first build by making a pus
 In the top right of the screen, select 'Project Settings' and then choose 'Deployment'. Type the name of the first branch you want to set a pipeline to. Save and continue. 
 
 > I recommend setting up your staging branch first just in case anything breaks, that way you aren't making any major mistakes on the production server. 
+> For this code base, CodeShip has been configured to watch the `test` branch rather than the release or master.
 
 You will then be prompted to select which app you want to use for deployment. Since we are using DigitalOcean and it is not a selectable option, scroll down and select 'Custom Script'. 
 
