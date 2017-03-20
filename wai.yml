@@ -1,0 +1,22 @@
+---
+  - hosts: test:staging
+    become: true
+    user: root
+    roles: 
+      - waimag_user
+      - nginx
+      - maria
+      - php
+      - wordpress
+  
+  - hosts: staging
+    become: true
+    user: root
+    roles: 
+      - staging
+
+  - hosts: test
+    become: true
+    user: root
+    roles:
+      - test
