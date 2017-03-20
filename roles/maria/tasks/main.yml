@@ -1,0 +1,49 @@
+---
+- name: Add MariaDB repository 
+  apt_repository: 
+    repo: 'deb http://ftp.igh.cnrs.fr/pub/mariadb/repo/10.0/ubuntu trusty main' 
+    state: present 
+
+- name: Add repository key to the system 
+  apt_key: 
+    keyserver: keyserver.ubuntu.com 
+    id: "0xcbcb082a1bb943db"
+
+- name: Install MariaDB Server
+  apt: name=mariadb-server state=latest update_cache=true
+
+- name: Install MySQLdb
+  apt: name=python-mysqldb state=latest update_cache=true
+
+- name: Create new database 
+  mysql_db: 
+    login_user: root
+    login_password: ""
+    name: "{{dbname}}"
+    state: present
+
+- name: Add DB account for non-root user
+  mysql_user: login_user=root login_password="" name={{mysql_nonroot_user}} password={{mysql_nonroot_password}} priv='{{dbname}}.*:ALL' state=present
+
+- name: Delete anonymous MySQL server user for
+  mysql_user: 
+    user: ""
+    host: localhost
+    state: absent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

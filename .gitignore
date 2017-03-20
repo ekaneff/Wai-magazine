@@ -1,0 +1,4 @@
+node_modules
+roles/waimag_user/vars/main.yml
+roles/waimag_user/files/authorized_keys
+wp-config.php
